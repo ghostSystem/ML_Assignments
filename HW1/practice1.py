@@ -29,41 +29,31 @@ def question2(N,M):
 	return ExpX, VarX
 
 
-
-def generateRandomNumbers(N):
-
-	X1 = []
-	X2 = []
-	#X1 = random.sample(range(1,N+1), math.ceil(math.sqrt(M)))
-	#X2 = random.sample(range(1,N+1), math.ceil(math.sqrt(M)))
-	X1 = random.sample(range(1,N+1), 100)
-	X2 = random.sample(range(1,N+1), 100)
-
-	return X1, X2
-
 def calculateFunctionForX(M,X1,X2):
 
-	#X1_Vis = []
-	#X2_Vis = []
-	X_Visited = []
-	X = []
-	count = 0
+	
 
-	while count < M:
-		X1_temp = random.choice(X1)
-		X2_temp = random.choice(X2)
-		# if tuple((X1_temp, X2_temp)) not in X_Visited:
-		# 	funcAns = max(X1_temp, X2_temp) - X1_temp
-		# 	X.append(funcAns)
-		# 	X_Visited.append(tuple((X1_temp, X2_temp)))
-		# 	#X1_Vis.append(X1_temp)
-		# 	#X2_Vis.append(X2_temp)
-		# 	count += 1
-		funcAns = max(X1_temp, X2_temp) - X1_temp
-		X.append(funcAns)
-		count += 1
+	# #X1_Vis = []
+	# #X2_Vis = []
+	# X_Visited = []
+	# X = []
+	# count = 0
 
-	return X
+	# while count < M:
+	# 	X1_temp = random.choice(X1)
+	# 	X2_temp = random.choice(X2)
+	# 	# if tuple((X1_temp, X2_temp)) not in X_Visited:
+	# 	# 	funcAns = max(X1_temp, X2_temp) - X1_temp
+	# 	# 	X.append(funcAns)
+	# 	# 	X_Visited.append(tuple((X1_temp, X2_temp)))
+	# 	# 	#X1_Vis.append(X1_temp)
+	# 	# 	#X2_Vis.append(X2_temp)
+	# 	# 	count += 1
+	# 	funcAns = max(X1_temp, X2_temp) - X1_temp
+	# 	X.append(funcAns)
+	# 	count += 1
+
+	# return X
 
 
 # def calculateProbabilityForX(X,N):
@@ -86,11 +76,34 @@ def calculateVarianceOfX(X):
 
 	return np.var(X)
 
+def generateRandomNumbers(N):
+
+	X1 = []
+	X2 = []
+	#X1 = random.sample(range(1,N+1), math.ceil(math.sqrt(M)))
+	#X2 = random.sample(range(1,N+1), math.ceil(math.sqrt(M)))
+	X1 = random.sample(range(1,N+1), 100)
+	X2 = random.sample(range(1,N+1), 100)
+
+	return X1, X2
+
+def getRandomTuplesList():
+
+	X1 = random.sample(range(1,101), 100)
+	X2 = random.sample(range(1,101), 100)
+	tempList = []
+	for i in X1:
+		for j in X2:
+			tempList.append(tuple((i,j)))
+
+	return tempList
+
+
+randomTuples = getRandomTuplesList()
 
 if __name__ == '__main__':
 
-	M = 100
-	N = 100
+	
 	ExpX = []
 	VarX = []
 
